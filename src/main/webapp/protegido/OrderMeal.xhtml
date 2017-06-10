@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Order Meal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        <h:form>
+            
+            <p:messages id="mensaje" autoUpdate="false" severity="info" showSummary="false" showDetail="true"/>
+            
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Hola"/>
+                <p:outputLabel value="#{ordenController.cliente.nombre_cliente}"/>
+                
+                <p:outputLabel value="Fecha entrega"/>
+                <p:calendar id="datetime" value="#{ordenController.orden.dia_orden}" pattern="MM/dd/yyyy HH:mm:ss" />
+                
+                <p:outputLabel value="Menu"/>
+                <p:selectOneMenu value="#{ordenController.menu.id_menu}">
+                    <f:selectItems value="#{ordenController.menues}" var="men" itemLabel="#{men.nombre_menu} #{men.precio_menu}" itemValue="#{men.id_menu}" />
+                </p:selectOneMenu>
+                
+                <p:outputLabel value="Ubicacion"/>
+                <p:selectOneMenu value="#{ordenController.ubicacion.id_ubicacion}">
+                    <f:selectItems value="#{ordenController.ubicaciones}" var="ubi" itemLabel="#{ubi.nombre_ubicacion}" itemValue="#{ubi.id_ubicacion}" />
+                </p:selectOneMenu>
+                
+                
+                
+                <p:outputLabel value="Cantidad a pagar"/>
+                <p:inputText value="#{ordenController.pago.costo_pago}" required="true"/>
+                
+                <p:outputLabel value="Tipo de Pago"/>
+                <p:selectOneMenu value="#{ordenController.tipoPago.id_tipo_pago}">
+                    <f:selectItems value="#{ordenController.tipoPagos}" var="tip" itemLabel="#{tip.nombre_tipo_pago}" itemValue="#{tip.id_tipo_pago}" />
+                </p:selectOneMenu>
+                
+               <!-- <p:column/>
+                <p:commandButton value="Pagar" actionListener="{ordenController.comprar()}"/>
+                
+                <p:column/>
+                <p:commandButton value="Ordenar" actionListener="{ordenController.ordenar()}"/>-->
+                
+                <p:column/>
+                <p:commandButton value="Ordenar Comida" actionListener="#{ordenController.ordenarComida()}" update="mensaje"/>
+                
+                
+                
+                <!--id="clave1" match"clave2"   id="clave2"-->
+                <!--<p:outputLabel value="Menu"/>
+                <p:selectOneMenu value="{ordenController.menu.id_menu}">
+                    <f:selectItems value="{ordenController.menues}" var="men" itemLabel="{men.nombre_menu} {men.precio_menu}" itemValue=" {men.id_menu}" />
+                </p:selectOneMenu>-->
+                
+                
+            </h:panelGrid>
+            
+        </h:form>
+        
+    </body>
+</html>
