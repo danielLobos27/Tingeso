@@ -6,21 +6,26 @@
 package com.tingeso.controller;
 
 import com.tingeso.model.Cliente;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+
+
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-
-
+import static org.openqa.selenium.Keys.TAB;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 /**
@@ -29,7 +34,7 @@ import org.testng.annotations.Test;
  */
 public class IndexControllerTest {
     
-        //Web driver de selenium
+         //Web driver de selenium
     private static WebDriver driver = null;
     //Elementos para enviar el resultado al testlink
     //Api del testlink
@@ -82,9 +87,13 @@ public class IndexControllerTest {
         
     }
     
-    @Test
-    public void IngresarOrden(){
-        
+    @AfterClass
+    public static void CerrarDriver(){
+        driver.quit();
+    }
+    
+     @Test
+    public void IngresarOrden() throws InterruptedException{
         String notes="Execution failed: no se a podido ingresar un menu correctamente ";
 	//String result=TestLinkAPIResults.TEST_FAILED;
         
@@ -108,7 +117,7 @@ public class IndexControllerTest {
             
             //esperar segundos para 
             driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-            WebDriverWait espera = new WebDriverWait(driver, 3000);
+            WebDriverWait espera = new WebDriverWait(driver, 10000);
             WebElement LabelCliente = driver.findElement(By.id("j_idt6:j_idt9"));
             espera.until(ExpectedConditions.visibilityOf(LabelCliente));
           
@@ -164,13 +173,12 @@ public class IndexControllerTest {
             //<span class="ui-messages-info-detail">
             
             //Enviamos respuesta al testlink
-           // result= TestLinkAPIResults.TEST_PASSED;
+            //result= TestLinkAPIResults.TEST_PASSED;
             notes="Executed successfully: A FUNCIONADO";
         }
         
         finally{
-            Assert.assertEquals(1, 1);
-            driver.quit();
+            Assert.assertEquals(0, 0);
             //reportResult(PROJECT_NAME, PLAN_NAME, Case_Name , BUILD_NAME, notes, result);
         }
         
