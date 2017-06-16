@@ -30,7 +30,7 @@ import org.testng.annotations.Test;
 public class IndexControllerTest {
     
         //Web driver de selenium
-    //private static WebDriver driver = null;
+    private static WebDriver driver = null;
     //Elementos para enviar el resultado al testlink
     //Api del testlink
     public static String DEV_KEY = "0dad4af5a801b22643d8424d69828f65"; //Your API
@@ -72,10 +72,18 @@ public class IndexControllerTest {
     /**
      * Test of init method, of class IndexController.
      */
+    
+    @BeforeClass
+    public static void InicializarDriver(){
+        // magia informatica por q la ultima version de selenium no inicia automaticamente el firefox
+        System.setProperty("webdriver.gecko.driver", "C:\\GeckoDriver\\geckodriver.exe");
+        //iniciamos el driver
+        driver = new FirefoxDriver();
+        
+    }
+    
     @Test
     public void IngresarOrden(){
-        
-        WebDriver driver = new FirefoxDriver();
         
         String notes="Execution failed: no se a podido ingresar un menu correctamente ";
 	//String result=TestLinkAPIResults.TEST_FAILED;
