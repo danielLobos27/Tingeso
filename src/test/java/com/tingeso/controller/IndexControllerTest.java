@@ -73,7 +73,7 @@ public class IndexControllerTest {
      * Test of init method, of class IndexController.
      */
     @Test
-    public void IngresarOrden() throws InterruptedException{
+    public void IngresarOrden(){
         
         WebDriver driver = new FirefoxDriver();
         
