@@ -34,7 +34,7 @@ import org.testng.annotations.BeforeTest;
  */
 public class IndexControllerTest {
     
-    private static WebDriver driver = null;
+   /* private static WebDriver driver = null;
  
     //nombre elemento para realizar la prueba
     private static String nombreCliente = "raul";
@@ -42,7 +42,7 @@ public class IndexControllerTest {
     
     private static String fecha = "02-05-17";
 
-    private static String monto = "8000";
+    private static String monto = "8000";*/
     
     
     
@@ -72,15 +72,15 @@ public class IndexControllerTest {
     @BeforeTest
     public static void InicializarDriver(){
         // magia informatica por q la ultima version de selenium no inicia automaticamente el firefox
-        System.setProperty("webdriver.gecko.driver", "C:\\GeckoDriver\\geckodriver.exe");
+        //System.setProperty("webdriver.gecko.driver", "C:\\GeckoDriver\\geckodriver.exe");
         //iniciamos el driver
-        driver = new FirefoxDriver();
+        //driver = new FirefoxDriver();
         
     }
     
     @AfterTest
     public static void CerrarDriver(){
-        driver.quit();
+        //driver.quit();
     }
     
      @Test
