@@ -34,20 +34,11 @@ import org.testng.annotations.BeforeTest;
  */
 public class IndexControllerTest {
     
-         //Web driver de selenium
     private static WebDriver driver = null;
-    //Elementos para enviar el resultado al testlink
-    //Api del testlink
-    public static String DEV_KEY = "0dad4af5a801b22643d8424d69828f65"; //Your API
-    public static String SERVER_URL = "http://localhost/testlink/lib/api/xmlrpc/v1/xmlrpc.php";//your testlink server url
-    public static String PROJECT_NAME = "Mingeso Test"; 
-    public static String PLAN_NAME = "Plan de Prueba CoS";
-    public static String BUILD_NAME = "V 1.0";
-    public static String Case_Name = "Menu [1]"; 
  
     //nombre elemento para realizar la prueba
     private static String nombreCliente = "raul";
-    private static String passCliente = "raul";
+    private static String passCliente = "olivares";
     
     private static String fecha = "02-05-17";
 
@@ -81,27 +72,25 @@ public class IndexControllerTest {
     @BeforeTest
     public static void InicializarDriver(){
         // magia informatica por q la ultima version de selenium no inicia automaticamente el firefox
-        /*System.setProperty("webdriver.gecko.driver", "C:\\GeckoDriver\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\GeckoDriver\\geckodriver.exe");
         //iniciamos el driver
-        driver = new FirefoxDriver();*/
+        driver = new FirefoxDriver();
         
     }
     
     @AfterTest
     public static void CerrarDriver(){
-        //driver.quit();
+        driver.quit();
     }
     
      @Test
-    public void IngresarOrden() throws InterruptedException{
-        String notes="Execution failed: no se a podido ingresar un menu correctamente ";
-	//String result=TestLinkAPIResults.TEST_FAILED;
+    public void IngresarOrden(){    
         
-        try{
-            //Primero nos logeamos correctamente
-            //nos dirigimos al login
-           /* driver.get("http://localhost:8080/TingesoPep2/");
-            
+        //Primero nos logeamos correctamente
+        //nos dirigimos al login
+        driver.get("http://localhost:8080/Tingeso-master/");
+        
+        
             //buscamos la casilla para ingresar el nombre de usuario
             WebElement ingresarUser = driver.findElement(By.id("j_idt5:j_idt9"));
             ingresarUser.sendKeys(nombreCliente);
@@ -170,18 +159,7 @@ public class IndexControllerTest {
 
             //WebElement mensaje = driver.findElement(By.xpath("//span[@class='ui-messages-info-detail']"));
             espera2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='ui-messages-info-detail']")));
-            //<span class="ui-messages-info-detail">
-            
-            //Enviamos respuesta al testlink
-            //result= TestLinkAPIResults.TEST_PASSED;*/
-            notes="Executed successfully: A FUNCIONADO";
-        }
-        
-        finally{
-            Assert.assertEquals(0, 0);
-            //reportResult(PROJECT_NAME, PLAN_NAME, Case_Name , BUILD_NAME, notes, result);
-        }
-        
+           
     }
     
 }
