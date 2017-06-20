@@ -115,7 +115,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--Comentar para que funcione o no PMD-->
+            <!--Comentar para que funcione o no PMD
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
@@ -127,11 +127,11 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             
         </plugins>
     </build>
-    <!--Comentar para que funcione o no PMD-->
+    <!--Comentar para que funcione o no PMD
     <reporting>
         <plugins>
             <plugin>
@@ -147,6 +147,6 @@
                 </configuration>
             </plugin>
         </plugins>
-    </reporting>
+    </reporting>-->
 
 </project>
